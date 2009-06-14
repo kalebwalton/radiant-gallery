@@ -7,9 +7,7 @@
   <thead>
     <tr>      
 			<th class="gallery">Name</th>
-      <th>ID</th>
-			<th class="status">Status</th>
-      <th class="modify" colspan="3">Actions</th>
+      <th class="modify">Actions</th>
     </tr>
   </thead>
   <tbody id="galleries_list">
@@ -17,7 +15,7 @@
 	<%= render :partial => 'gallery', :collection => @galleries %>
 <% else -%>
   <tr>
-    <td colspan="6" class="note">No Galleries</td>
+    <td colspan="3" class="note">No Galleries</td>
   </tr>
 <% end -%>
   </tbody>

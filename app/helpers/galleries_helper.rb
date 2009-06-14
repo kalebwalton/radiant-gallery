@@ -3,12 +3,12 @@ module GalleriesHelper
   def gallery_toolbar
     content = '<div class="toolbar">'
     links = []
-    links << link_to('New file', new_admin_gallery_item_path(@gallery),     :onclick => "Gallery.openPopup('#{new_admin_gallery_item_path(@gallery)}',      'New file'); return false")
-    links << link_to('Import files', new_admin_gallery_item_path(@gallery), :onclick => "Gallery.openPopup('#{new_admin_gallery_importing_path(@gallery)}', 'New file'); return false")
-    links << link_to('Edit gallery', edit_admin_gallery_path(@gallery))
-    links << link_to('Clear thumbs', clear_thumbs_admin_gallery_path(@gallery))
-    links << link_to('Add Child Gallery', new_admin_gallery_child_path(@gallery))
-    links << link_to('Destroy gallery', admin_gallery_path(@gallery), :method => 'delete', :confirm => 'Are you sure?')
+    links << link_to('Upload Photos', new_admin_gallery_item_path(@gallery),     :onclick => "Gallery.openPopup('#{new_admin_gallery_item_path(@gallery)}', 'Upload Photos', 500, 250); return false")
+    # links << link_to('Import files', new_admin_gallery_item_path(@gallery), :onclick => "Gallery.openPopup('#{new_admin_gallery_importing_path(@gallery)}', 'New file'); return false")
+    links << link_to('Edit Gallery', edit_admin_gallery_path(@gallery))
+    # links << link_to('Clear thumbs', clear_thumbs_admin_gallery_path(@gallery))
+    # links << link_to('Add Child Gallery', new_admin_gallery_child_path(@gallery))
+    # links << link_to('Destroy gallery', admin_gallery_path(@gallery), :method => 'delete', :confirm => 'Are you sure?')
     content << links.join(" | ")
     content << '</div>'
   end    

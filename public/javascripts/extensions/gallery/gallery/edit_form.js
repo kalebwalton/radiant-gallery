@@ -52,7 +52,7 @@ Gallery.EditForm = {
       method: 'put',
       parameters: {
         'gallery_item[name]': name, 'gallery_item[description]': description,
-        authenticity_token: encodeURIComponent($('authenticity_token').value)
+        authenticity_token: $('authenticity_token').value
       }
     });
     

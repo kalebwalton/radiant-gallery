@@ -215,6 +215,8 @@ protected
       tag.locals.gallery
     elsif tag.attr["id"]
       Gallery.find_by_id tag.attr["id"]
+    elsif tag.attr["name"]
+      Gallery.find_by_name tag.attr["name"]
     elsif @current_gallery
       @current_gallery
     elsif tag.locals.page.base_gallery
