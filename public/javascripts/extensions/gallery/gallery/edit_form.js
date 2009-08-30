@@ -9,6 +9,7 @@ Gallery.EditForm = {
     var name = item.down('.label a').innerHTML;
     if (name == '&nbsp;') name = '';
     $('edit-item-name').value = name;
+    $('edit-item-url').value = item.down('.url').innerHTML;
     $('edit-item-description').value = item.down('.description').innerHTML;
   },
   
@@ -36,6 +37,7 @@ Gallery.EditForm = {
   reset: function(popup) {
     popup.down('form').setAttribute('action', '');
     $('edit-item-name').value = '';
+    $('edit-item-url').value = '';
     $('edit-item-description').value = '';
     $('edit-spinner').hide(); 
     $('edit-submit').show();
@@ -43,15 +45,16 @@ Gallery.EditForm = {
   
   handleFormSubmit: function(event) {
     event.stop();
-    var url = event.target.getAttribute('action');
+    var formUrl = event.target.getAttribute('action');
     var name = $('edit-item-name').value;
+    var url = $('edit-item-url').value;
     var description = $('edit-item-description').value;
     $('edit-spinner').show();
     $('edit-submit').hide();
-    new Ajax.Request(url, {
+    new Ajax.Request(formUrl, {
       method: 'put',
       parameters: {
-        'gallery_item[name]': name, 'gallery_item[description]': description,
+        'gallery_item[name]': name, 'gallery_item[description]': description, 'gallery_item[url]': url,
         authenticity_token: $('authenticity_token').value
       }
     });
